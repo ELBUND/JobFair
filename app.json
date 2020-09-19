@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/home/search",
+    "pages/Msg/list",
+    "pages/Msg/room",
+    "pages/mine/mine",
+    "pages/myCV/myCV",
+    "pages/myCV/changeCV",
+    "pages/jobWanted/jobWanted",
+    "pages/jobWanted/choose",
+    "pages/myFavor/myFavor",
+    "pages/mySend/mySend",
+    "pages/jobDetail/jobDetail",
+    "pages/company/company",
+    "pages/post/post",
+    "pages/mailbox/mailbox",
+    "pages/looking/looking",
+    "pages/looking/detail",
+    "pages/mailbox/checkCV",
+    "pages/jobCreat/jobCreat",
+    "pages/jobCreat/choose",
+    "pages/companyDetail/companyDetail",
+    "pages/companyRegister/companyRegister",
+    "pages/report/report"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "校园招聘会",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "list": [{
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/img/home.png",
+        "selectedIconPath": "/img/home_active.png"
+      },
+      {
+        "pagePath": "pages/Msg/list",
+        "text": "消息",
+        "iconPath": "/img/msg.png",
+        "selectedIconPath": "/img/msg_active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/img/mine.png",
+        "selectedIconPath": "/img/mine_active.png"
+      }
+    ]
+  },
+  "useExtendedLib": {
+    "weui": true
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

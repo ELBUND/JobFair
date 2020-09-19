@@ -1,0 +1,56 @@
+.container{
+  width: 100vw;
+  border-top: 1rpx solid #e4e4e4;
+}
+
+.job_item{
+  padding: 16rpx 24rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  box-shadow: 10px 10px 10px #ddd;
+}
+
+.job_item .row{
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+
+.job_item .job_name{
+  float: left;
+  font-size: 36rpx;
+}
+
+.job_item .publish_time{
+  float: right;
+  color: #888888;
+}
+
+.job_item .job_salary{
+  color: #ed6549;
+  float: left;
+}
+
+.job_item .welfare_item{
+  padding: 2rpx 10rpx;
+  color: #2584f0;
+  border: 1rpx solid #2584f0;
+  border-radius: 4px;
+  float: left;
+  margin-right: 10rpx;
+}
+
+.job_item .company{
+  color: #888888;
+  float: left;
+}
+
+.job_item .area{
+  color: #888888;
+  float: right;
+}
+
+.job_item .row .count{
+  float: left;
+  margin-right: 20rpx;
+  color: #9c9c9c;
+}
