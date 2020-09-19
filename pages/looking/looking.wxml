@@ -1,0 +1,84 @@
+<view class="container">
+	<!-- 筛选 -->
+	<view class="screen">
+		<view class="screen_icon" bindtap="screen">
+			<image src="/img/screen.png"></image>
+		</view>
+	</view>
+	<!-- 筛选弹窗 -->
+	<view class="screen_modal" wx:if="{{screen_flag==1}}">
+		<view class="screen_main" animation="{{animation}}">
+			<scroll-view scroll-y style="height: 1060rpx">
+				<view class="s_title">
+					<view class="title">选择筛选条件</view>
+					<image src="/img/close_grey.png" catchtap="close"></image>
+				</view>
+				<view class="s_part">
+					<view class="title">学历</view>
+					<view class="content">
+						<view class="item {{current_education==index?'selected':''}}" wx:for="{{education}}" wx:key="index" catchtap="education" data-index="{{index}}">
+							{{item}}
+						</view>
+					</view>
+				</view>
+				<view class="s_part">
+					<view class="title">专业</view>
+					<view class="content">
+						<view class="c_item {{current_major==index?'selected':''}}" wx:for="{{major}}" wx:key="index" catchtap="major" data-index="{{index}}">
+							{{item}}
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+			<view class="operation">
+				<view class="clearSelect" catchtap="btnClear">清除</view>
+				<view class="confirm" catchtap="btnConfirm">确定</view>
+			</view>
+		</view>
+	</view>
+	<!-- 显示数据 -->
+	<view class="showCV">
+		<view class="cv_item" hover-class="tap" hover-stay-time="100" wx:for="{{CV}}" wx:key="index" bindtap="detail" data-item="{{item}}">
+			<view class="photo">
+				<image src="{{item.photo}}"></image>
+			</view>
+			<view class="info">
+				<view class="i_row">
+					<view class="name">{{item.name}}</view>
+				</view>
+				<view class="i_row">
+					<view class="title">教育经历：</view>
+				</view>
+				<view class="subitem">
+					<view class="each">学历：{{item.education}}</view>
+					<view class="each">学校：{{item.school}}</view>
+					<view class="each">专业：{{item.major}}</view>
+				</view>
+				<view class="i_row" wx:if="{{item.projectList.length!=0}}">
+					<view class="title">项目经历：</view>
+				</view>
+				<view class="subitem" wx:for="{{item.projectList}}" wx:key="index">
+					<view class="each">名称：{{item.pname}}</view>
+					<view class="each">职位：{{item.pjob}}</view>
+					<view class="each">详情：{{item.pdetail}}</view>
+				</view>
+				<view class="i_row" wx:if="{{item.workList.length!=0}}">
+					<view class="title">工作经历：</view>
+				</view>
+				<view class="subitem" wx:for="{{item.workList}}" wx:key="index">
+					<view class="each">公司：{{item.wname}}</view>
+					<view class="each">职位：{{item.wjob}}</view>
+					<view class="each">详情：{{item.wdetail}}</view>
+				</view>
+			</view>
+			<view class="detail_wrap">
+				<view class="detail">
+					<view>查看详情</view>
+					<view class="icon_right">
+						<image src="/img/right.png"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

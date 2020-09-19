@@ -1,0 +1,143 @@
+<view class="container">
+	<form catchsubmit="submit">
+		<!-- 职位名称、薪资待遇 -->
+		<view class="part">
+			<view class="row">
+				<view class="title"><text decode="true">职&emsp;&emsp;位</text></view>
+				<view class="content">
+					<view class="select" bindtap="chooseJob">
+						<input name="job" placeholder="请选择职位" disabled="true" value="{{currentSelect}}"></input>
+						<image src="/img/right.png"></image>
+					</view>
+				</view>
+			</view>
+			<view class="row">
+				<view class="title">职位名称</view>
+				<view class="content">
+					<input name="name" placeholder="请输入职位名称"></input>
+				</view>
+			</view>
+			<view class="row">
+				<view class="title">薪资待遇</view>
+				<view class="content">
+					<view class="salary">
+						<picker name="salary_start" bindchange="salary1" value="{{salary1[index_salary1]}}" range="{{salary1}}">
+							<view class="picker_salary">{{salary1[index_salary1]}}</view>
+						</picker>
+						~
+						<picker name="salary_end" bindchange="salary2" value="{{salary2[index_salary2]}}" range="{{salary2}}">
+							<view class="picker_salary">{{salary2[index_salary2]}}</view>
+						</picker>
+						元
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- 要求，福利 -->
+		<view class="part">
+			<view class="row">
+				<view class="title">学历要求</view>
+				<view class="content">
+					<view class="select">
+						<picker name="education" bindchange="eduaction" value="{{education[index_education]}}" range="{{education}}">
+							<view class="pickerShow">{{education[index_education]}}</view>
+						</picker>
+						<image src="/img/right.png"></image>
+					</view>
+				</view>
+			</view>
+			<view class="row">
+				<view class="title">福利待遇</view>
+				<view class="content" style="width: 500rpx">
+					<view class="add_item" wx:for="{{welfares}}" wx:key="index" wx:if="{{item.selected==true}}">
+						{{item.name}}
+					</view>
+					<view class="add" bindtap="addWelfare">
+						<image src="/img/add1.png"></image>
+						<text>添加</text>
+					</view>
+				</view>
+			</view>
+			<!-- 添加福利弹窗 -->
+			<view class="welfares_wrap" wx:if="{{chooseWelfare==true}}">
+				<view class="welfares" animation="{{animation}}">
+					<view class="w_title">
+						<text>请选择福利待遇</text>
+						<image src="/img/close_grey.png" catchtap="close"></image>
+					</view>
+					<view class="welfare_item {{item.selected==true?'selected':''}}" wx:for="{{welfares}}" wx:key="index" data-index="{{index}}" catchtap="welfareSelect">
+						{{item.name}}
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- 其他 -->
+		<view class="part">
+			<view class="row">
+				<view class="title"><text decode="true">姓&emsp;&emsp;名</text></view>
+				<view class="content">
+					<input name="hr" placeholder="请输入发布者的姓名"></input>
+				</view>
+			</view>
+			<view class="row">
+				<view class="title"><text decode="true">职&emsp;&emsp;位</text></view>
+				<view class="content">
+					<input name="position" placeholder="请输入发布者的职位"></input>
+				</view>
+			</view>
+			<view class="row">
+				<view class="title">联系电话</view>
+				<view class="content">
+					<input name="phone" placeholder="请输入联系电话" type="number"></input>
+				</view>
+			</view>
+			<view class="row">
+				<view class="title"><text decode="true">微&emsp;&emsp;信</text></view>
+				<view class="content">
+					<input name="weixin" placeholder="请输入发布者的微信"></input>
+				</view>
+			</view>
+			<view class="row">
+				<view class="title">联系邮箱</view>
+				<view class="content">
+					<input name="email" placeholder="请输入联系邮箱"></input>
+				</view>
+			</view>
+			<view class="row">
+				<view class="title"><text decode="true">地&emsp;&emsp;址</text></view>
+				<view class="content">
+					<view class="select">
+						<picker name="address" mode="region" bindchange="address" value="{{address}}" custom-item="{{customItem}}">
+							<view class="pickerShow">{{address[0]}},{{address[1]}},{{address[2]}}</view>
+						</picker>
+						<image src="/img/right.png"></image>
+					</view>
+				</view>
+			</view>
+			<view class="row">
+				<view class="title">详细地址</view>
+				<view class="content">
+					<input name="addressDetail" placeholder="街道门牌信息"></input>
+				</view>
+			</view>
+			<view class="row">
+				<view class="title">职位说明</view>
+				<view class="content">
+					<view class="addPoint" bindtap="addPoint">
+						<image class="icon_add" src="/img/add.png"></image>
+						<view style="color: #4a7deb;margin-left: 10rpx">添加(推荐分点描述)</view>
+					</view>
+				</view>
+			</view>
+			<!-- 添加的说明 -->
+			<view class="points" wx:for="{{points}}" wx:key="index">
+				<image class="icon_point" src="/img/point.png"></image>
+				<input placeholder="请输入职位说明" value="{{item.point}}" bindinput="pointInput" data-index="{{index}}"></input>
+				<image class="icon_del" src="/img/del.png" data-index="{{index}}" bindtap="delPoint"></image>
+			</view>
+		</view>
+		<button class="btnsubmit" type="primary" form-type="submit">创建职位</button>
+	</form>
+	<!-- 占位容器 -->
+	<view class="fit"></view>
+</view>

@@ -1,0 +1,282 @@
+<view class="container">
+	<!-- 添加照片 -->
+	<view class="addPhoto" bindtap="addPhoto">
+		<view class="title">添加头像照片</view>
+		<view class="right">
+			<image src="/img/right.png"></image>
+		</view>
+		<view class="photo">
+			<image wx:if="{{photoUrl==''}}" src="/img/user.png"></image>
+			<image wx:else src="{{photoUrl}}"></image>
+		</view>
+	</view>
+	<!-- 基本信息 -->
+	<view class="main">
+		<view class="head">基本信息</view>
+		<form catchsubmit="save">
+			<!-- 姓名 -->
+			<view class="row">
+				<view class="title"><text decode="true">姓&emsp;&emsp;名</text></view>
+				<view class="content">
+					<input name="name" placeholder="输入姓名" value="{{name}}"></input>
+				</view>
+			</view>
+
+			<!-- 性别 -->
+			<view class="row">
+				<view class="title"><text decode="true">性&emsp;&emsp;别</text></view>
+				<view class="content">
+					<radio-group name="sex" bindchange="sex_select">
+						<label>
+							<radio value="男">男</radio>
+						</label>
+						<label style="margin-left: 40rpx">
+							<radio value="女">女</radio>
+						</label>
+					</radio-group>
+				</view>
+			</view>
+
+			<!-- 教育经历 -->
+			<view class="row">
+				<view class="title">教育经历</view>
+			</view>
+			<!-- 添加教育经历 -->
+			<view class="project">
+				<view class="row">
+					<view class="title">学校名称</view>
+					<view class="content">
+						<input name="school" placeholder="填写学校完整名称" value="{{school}}"></input>
+					</view>
+				</view>
+				<view class="row">
+					<view class="title">所在城市</view>
+					<view class="content">
+						<input name="school_city" placeholder="填写学校所在城市" value="{{school_city}}"></input>
+					</view>
+				</view>
+				<view class="row">
+					<view class="title"><text decode="true">学&emsp;&emsp;历</text></view>
+					<view class="content">
+						<picker class="pickerStyle" name="education" bindchange="education" value="{{education[index_edu]}}" range="{{education}}">
+							{{education[index_edu]}}
+						</picker>
+					</view>
+				</view>
+				<view class="row">
+					<view class="title">完成时间</view>
+					<view class="content">
+						<input name="graduation_time" placeholder="格式:2016.9-2020.6" value="{{graduation_time}}"></input>
+					</view>
+				</view>
+				<view class="row">
+					<view class="title"><text decode="true">院&emsp;&emsp;系</text></view>
+					<view class="content">
+						<picker class="pickerStyle" name="college" bindchange="college" value="{{college[index_college]}}" range="{{college}}">
+							{{college[index_college]}}
+						</picker>
+					</view>
+				</view>
+				<view class="row">
+					<view class="title"><text decode="true">专&emsp;&emsp;业</text></view>
+					<view class="content">
+						<picker class="pickerStyle" name="major" bindchange="major" value="{{major[index_major]}}" range="{{major}}">
+							{{major[index_major]}}
+						</picker>
+					</view>
+				</view>
+			</view>
+
+			<!-- 项目经历 -->
+			<view class="row">
+				<view class="title">项目经历</view>
+				<view class="content" bindtap="addProject">
+					<image src="/img/add.png"></image>
+					<view style="color: #4a7deb;margin-left: 10rpx">添加(没有可不添加;可添加多项)</view>
+				</view>
+			</view>
+			<!-- 添加项目经历 -->
+			<view class="project" wx:for="{{projectList}}" wx:key="index">
+				<view class="row">
+					<view class="title">项目名称</view>
+					<view class="content">
+						<input placeholder="填写项目名称" bindinput="input_pname" value="{{projectList[index].pname}}" data-index="{{index}}"></input>
+					</view>
+				</view>
+				<view class="row">
+					<view class="title">担任工作</view>
+					<view class="content">
+						<input placeholder="填写担任工作" bindinput="input_pjob" value="{{projectList[index].pjob}}" data-index="{{index}}"></input>
+					</view>
+				</view>
+				<view class="row">
+					<view class="title">完成时间</view>
+					<view class="content">
+						<input placeholder="格式:2020.2.1-2020.4.1" bindinput="input_ptime" value="{{projectList[index].ptime}}" data-index="{{index}}"></input>
+					</view>
+				</view>
+				<view class="row">
+					<view class="title">项目描述(担任的工作,现运营情况等,200字以内)</view>
+				</view>
+				<view class="t_row">
+					<textarea placeholder="填写项目描述" cursor-spacing="100rpx" maxlength="200" bindinput="input_pdetail" value="{{projectList[index].pdetail}}" data-index="{{index}}"></textarea>
+				</view>
+				<view class="row">
+					<view class="del" bindtap="delProject" data-index="{{index}}">
+						<image src="/img/del.png"></image>
+						<view style="color: #f44c4c;margin-left: 10rpx">删除</view>
+					</view>
+				</view>
+			</view>
+
+			<!-- 工作经历 -->
+			<view class="row">
+				<view class="title">工作经历</view>
+				<view class="content" bindtap="addWorkExp">
+					<image src="/img/add.png"></image>
+					<view style="color: #4a7deb;margin-left: 10rpx">添加(没有可不添加;可添加多项)</view>
+				</view>
+			</view>
+			<!-- 添加工作经历 -->
+			<view class="project" wx:for="{{workList}}" wx:key="index">
+				<view class="row">
+					<view class="title">公司名称</view>
+					<view class="content">
+						<input placeholder="输入公司完整名称" bindinput="input_wname" value="{{workList[index].wname}}" data-index="{{index}}"></input>
+					</view>
+				</view>
+				<view class="row">
+					<view class="title">所在职位</view>
+					<view class="content">
+						<input placeholder="输入所在职位" bindinput="input_wjob" value="{{workList[index].wjob}}" data-index="{{index}}"></input>
+					</view>
+				</view>
+				<view class="row">
+					<view class="title">所在城市</view>
+					<view class="content">
+						<input placeholder="输入所在城市" bindinput="input_wcity" value="{{workList[index].wcity}}" data-index="{{index}}"></input>
+					</view>
+				</view>
+				<view class="row">
+					<view class="title">任职时间</view>
+					<view class="content">
+						<input placeholder="格式:2020.4.1-2020.5.1" bindinput="input_wtime" value="{{workList[index].wtime}}" data-index="{{index}}"></input>
+					</view>
+				</view>
+				<view class="row">
+					<view class="title">工作内容(简述,200字内)</view>
+				</view>
+				<view class="t_row">
+					<textarea placeholder="填写工作内容" cursor-spacing="100rpx" maxlength="200" bindinput="input_wdetail" value="{{workList[index].wdetail}}" data-index="{{index}}"></textarea>
+				</view>
+				<view class="row">
+					<view class="del" bindtap="delWork" data-index="{{index}}">
+						<image src="/img/del.png"></image>
+						<view style="color: #f44c4c;margin-left: 10rpx">删除</view>
+					</view>
+				</view>
+			</view>
+
+			<!-- 所在城市 -->
+			<view class="row">
+				<view class="title">所在城市</view>
+				<view class="content">
+					<!-- 未选择前 -->
+					<view class="pickerStyle" bindtap="city" wx:if="{{hasSelected==false}}">点击选择城市</view>
+					<!-- 选择后 -->
+					<view class="pickerStyle" bindtap="city" wx:else>{{city_selected}}</view>
+					<!-- 弹窗选择 -->
+					<view class="city_select_wrap" wx:if="{{city_flag==1}}">
+						<view class="city_select_body">
+							<view class="c_title">城市选择</view>
+							<view class="c_main">
+								<list data="{{citys}}" binddetail="citySelected"></list>
+							</view>
+							<view class="c_confirm">
+								<view class="showSelected">当前选择: {{city_selected}}</view>
+								<view class="btnConfirm">
+									<button type="primary" bindtap="confirmCtiy" style="width:200rpx;padding:10rpx">确认选择</button>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+
+			<!-- 求职意向 -->
+			<!-- <view class="row">
+				<view class="title"><text decode="true">求职意向</text></view>
+				<view class="content">
+					<picker name="jobWanted" class="pickerStyle" bindchange="jobWanted" value="{{jobWanted[index_jobWanted]}}" range="{{jobWanted}}">
+						{{jobWanted[index_jobWanted]}}
+					</picker>
+				</view>
+			</view> -->
+
+			<!-- 联系电话 -->
+			<view class="row">
+				<view class="title">联系电话</view>
+				<view class="content">
+					<input name="phone" placeholder="输入手机号码" value="{{phone}}" type="number"></input>
+				</view>
+			</view>
+
+			<!-- 联系微信号 -->
+			<view class="row">
+				<view class="title"><text decode="true">微&nbsp;&nbsp;信&nbsp;&nbsp;号</text></view>
+				<view class="content">
+					<input name="weixin" placeholder="输入微信号" value="{{weixin}}"></input>
+				</view>
+			</view>
+
+			<!-- 联系邮箱 -->
+			<view class="row">
+				<view class="title">联系邮箱</view>
+				<view class="content">
+					<input name="email" placeholder="输入邮箱" value="{{email}}"></input>
+				</view>
+			</view>
+
+			<!-- 个人总结 -->
+			<view class="row">
+				<view class="title">个人总结</view>
+				<view class="content" bindtap="addSummary">
+					<image src="/img/add.png"></image>
+					<view style="color: #4a7deb;margin-left: 10rpx">添加(推荐分点描述)</view>
+				</view>
+			</view>
+			<!-- 添加的内容 -->
+			<view class="summary" wx:for="{{summaryList}}" wx:key="index">
+				<view class="summary_item">
+					<image src="/img/point.png"></image>
+					<input placeholder="输入个人总结" bindinput="input_sdetail" value="{{summaryList[index].sdetail}}" data-index="{{index}}"></input>
+					<image src="/img/del.png" bindtap="delSummary" data-index="{{index}}"></image>
+				</view>
+			</view>
+
+			<!-- 获得的成就以及证书 -->
+			<view class="row">
+				<view class="title"><text decode="true">其&emsp;&emsp;它</text></view>
+				<view class="content" bindtap="addOther">
+					<image src="/img/add.png"></image>
+					<view style="color: #4a7deb;margin-left: 10rpx">添加(获得的成就或者证书之类)</view>
+				</view>
+			</view>
+			<!-- 添加的内容 -->
+			<view class="summary" wx:for="{{otherList}}" wx:key="index">
+				<view class="summary_item">
+					<image src="/img/point.png"></image>
+					<input placeholder="获得的成就或者证书" bindinput="input_odetail" value="{{otherList[index].odetail}}" data-index="{{index}}"></input>
+					<image src="/img/del.png" bindtap="delOther"></image>
+				</view>
+			</view>
+
+			<!-- 确认按钮 -->
+			<view class="row">
+				<view class="btnSave">
+					<button type="primary" form-type="submit">保存</button>
+				</view>
+			</view>
+		</form>
+	</view>
+</view>

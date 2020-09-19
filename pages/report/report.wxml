@@ -1,0 +1,37 @@
+<view class="container">
+	<view class="part">
+		<view class="title">举报说明</view>
+		<view class="input_text">
+			<textarea placeholder="输入举报原因" maxlength="200" bindinput="currentNum"></textarea>
+		</view>
+		<view class="showNum">{{currentNum}}/200</view>
+	</view>
+	<!-- 联系方式 -->
+	<view class="part">
+		<view class="phone">
+			<view class="left">联系方式</view>
+			<button wx:if="{{phone==''}}" class="permit" style="width: 138px;height: 80rpx" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击授权手机号码</button>
+			<view class="permit" wx:else>{{phone}}</view>
+		</view>
+	</view>
+	<!-- 上传图片 -->
+	<view class="part">
+		<view class="title">上传图片</view>
+		<view class="addPhoto">
+			<view class="add_item" wx:for="{{photos}}" wx:key="index">
+				<image src="{{item.url}}"></image>
+				<image src="/img/delphoto.png" class="delphoto" bindtap="delPhoto" data-index="{{index}}"></image>
+			</view>
+			<view class="add" wx:if="{{photos.length<9}}">
+				<image src="/img/addphoto.png" bindtap="addPhoto"></image>
+			</view>
+		</view>
+		<view class="tip">最多9张</view>
+	</view>
+  <!-- 占位容器 -->
+  <view class="fit"></view>
+  <!-- 底部确认按钮 -->
+  <view class="confirm">
+    <view class="btnConfirm" bindtap="confirm">确认举报</view>
+  </view>
+</view>

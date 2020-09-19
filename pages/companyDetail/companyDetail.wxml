@@ -1,0 +1,93 @@
+<view class="contanier">
+	<!-- 顶部logo以及基本信息 -->
+	<view class="head">
+		<view class="logo">
+			<view class="haslogo">
+				<image src="{{company.logo}}"></image>
+			</view>
+		</view>
+		<view class="info">
+			<view class="name">{{company.name}}</view>
+			<view class="other">
+				<text decode="true">{{company.duration}}&nbsp;&nbsp;|&nbsp;&nbsp;{{company.trade}}&nbsp;&nbsp;|&nbsp;&nbsp;{{company.scale}}</text>
+			</view>
+		</view>
+		<view class="report"><text bindtap="report">举报</text></view>
+	</view>
+	<!-- 公司介绍 -->
+	<view class="part" style="margin-top: 0">
+		<view class="title">
+			<image src="/img/company.png"></image>
+			公司介绍
+		</view>
+		<view id="introduction" class="content {{readmore.status?'hidden':''}}">
+			<text decode="true">&emsp;&emsp;{{company.introduction}}
+			</text>
+		</view>
+		<!-- 显示查看更多或者收起 -->
+		<view class="readmore_tip" bindtap="toggle" wx:if="{{readmore.show}}">{{readmore.tip}}</view>
+	</view>
+	<!-- 公司营业执照 -->
+	<view class="part">
+		<view class="title">
+			<image src="/img/license.png"></image>
+			公司营业执照
+		</view>
+		<view class="content">
+			<image class="license" src="{{company.license}}" mode="aspectFit" bindtap="prelicense"></image>
+		</view>
+	</view>
+		<!-- 公司环境照片 -->
+	<view class="part" wx:if="{{company.photos.length!=0}}">
+		<view class="title">
+			<image src="/img/env.png"></image>
+			公司环境照片
+		</view>
+		<view class="content">
+			<scroll-view scroll-x class="photos">
+				<view class="photo" wx:for="{{company.photos}}" wx:key="index">
+					<image src="{{item}}" bindtap="prePic" data-current="{{item}}"></image>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+	<!-- 公司地址 -->
+	<view class="part">
+		<view class="title">
+			<image src="/img/work_address.png"></image>
+			公司地址
+		</view>
+		<view class="content">
+			<view class="address">广东省茂名市官渡区XX路666号</view>
+			<!-- 地图显示 -->
+		</view>
+	</view>
+	<!-- 发布职位 -->
+	<view class="part">
+		<view class="title">
+			<image src="/img/jobs.png"></image>
+			发布职位
+		</view>
+	</view>
+	<!-- 显示发布的职位 -->
+	<view class="job_item" wx:for="{{jobs}}" wx:key="index" bindtap="jobDetail" data-item="{{item}}">
+		<!-- 职位名称及发布时间 -->
+		<view class="row">
+			<view class="job_name">{{item.name}}</view>
+			<view class="publish_time">{{item.postTime}}</view>
+		</view>
+		<!-- 薪资 -->
+		<view class="row">
+			<view class="job_salary">{{item.salary_start}}k ~ {{item.salary_end}}k</view>
+		</view>
+		<!-- 福利待遇 -->
+		<view class="row" style="border-bottom: 1rpx solid #e4e4e4;padding-bottom: 20rpx">
+			<view class="welfare_item" wx:for="{{item.welfares}}" wx:key="*this">{{item}}</view>
+		</view>
+		<!-- 公司及区域 -->
+		<view class="row">
+			<view class="company">{{item.company}}</view>
+			<!-- <view class="area">{{item.area}}</view> -->
+		</view>
+	</view>
+</view>

@@ -1,0 +1,42 @@
+page{
+  background-color: #e4e4e4;
+}
+
+.postJob .title{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #fff;
+  border-bottom: 1rpx solid #f0f0f0;
+  font-size: 34rpx;
+}
+
+.fit{
+  width: 100%;
+  height: 200rpx;
+}
+
+.creatJob{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  z-index: 11;
+  background-color: #fff;
+  border-top: 1rpx solid #eee;
+}
+
+.creatJob .btncreatJob{
+  width: 480rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-weight: 500;
+  color: #fff;
+  padding: 0;
+  background: linear-gradient(to right, #38c9f6, #4d81eb);
+  z-index: 11;
+}

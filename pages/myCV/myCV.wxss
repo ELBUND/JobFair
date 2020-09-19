@@ -1,0 +1,81 @@
+page{
+  background-color: #e4e4e4;
+}
+
+.hasNoCV{
+  width: 100%;
+  text-align: center;
+  padding-top: 100rpx;
+  border-top: 1rpx solid #e4e4e4;
+}
+
+.add{
+  color: #666;
+}
+
+.CVShow{
+  padding: 20rpx;
+}
+
+.head{
+  background-color: #fff;
+  height: 280rpx;
+  padding: 20rpx;
+}
+
+.head .info{
+  float: left;
+}
+
+.head .info .i_row{
+  margin: 4rpx 0;
+  font-size: 32rpx;
+}
+
+.head .photo{
+  float: right;
+  width: 200rpx;
+  height: 240rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}
+
+.head .photo image{
+  width: 100%;
+  height: 100%;
+}
+
+.info_item{
+  background-color: #fff;
+  padding: 0 20rpx;
+}
+
+.info_item .title{
+  width: 100%;
+  font-size: 36rpx;
+  font-weight: 600;
+  border-bottom: 4rpx solid #000;
+}
+
+.info_item .content{
+  width: 100%;
+}
+
+.c_row{
+  display: flex;
+  align-items: center;
+  margin-top: 6rpx;
+  font-size: 32rpx;
+}
+
+.c_row image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.change{
+  width: 100%;
+  padding: 20rpx 0;
+  background-color: #fff;
+}

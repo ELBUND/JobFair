@@ -1,0 +1,39 @@
+<view class="container">
+	<!-- 顶部选项卡 -->
+	<view class="nav">
+		<view class="nav_item {{current==index?'active':''}}" wx:for="{{nav}}" wx:key="*this" bindtap="switchNav" data-index="{{index}}">{{item}}</view>
+	</view>
+	<!-- 显示内容 -->
+	<!-- 未通过 -->
+	<view class="show_item" wx:if="{{current==0}}" wx:for="{{noPass}}" wx:key="index" bindtap="detail" data-item="{{item}}">
+		<view class="left">
+			<view class="jobname">投递职位：{{item.name}}</view>
+			<view class="delivererInfo">
+				<view class="name">投递者：{{item.deliverer.name}}</view>
+			</view>
+		</view>
+		<view class="right">
+			<text>查看详情</text>
+			<view class="go">
+				<image src="/img/right.png"></image>
+			</view>
+		</view>
+		<view class="status">状态：<text style="color:red">未通过</text></view>
+	</view>
+	<!-- 已通过 -->
+	<view class="show_item" wx:if="{{current==1}}" wx:for="{{Pass}}" wx:key="index" bindtap="detail" data-item="{{item}}">
+		<view class="left">
+			<view class="jobname">投递职位：{{item.name}}</view>
+			<view class="delivererInfo">
+				<view class="name">投递者：{{item.deliverer.name}}</view>
+			</view>
+		</view>
+		<view class="right">
+			<text>查看详情</text>
+			<view class="go">
+				<image src="/img/right.png"></image>
+			</view>
+		</view>
+		<view class="status">状态：<text style="color:green">已通过</text></view>
+	</view>
+</view>

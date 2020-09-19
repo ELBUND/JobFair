@@ -1,0 +1,57 @@
+page{
+  background-color: #e4e4e4;
+}
+
+.nav{
+  width: 100%;
+  height: 80rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+
+.nav .nav_item{
+  text-align: center;
+  height: 100%;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+}
+
+.nav .nav_item.active{
+  border-bottom: 2rpx solid #1296db;
+  color: #1296db;
+}
+
+.show_item{
+  padding: 20rpx;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  overflow: hidden;
+}
+
+.show_item .left{
+  float: left;
+  box-sizing: border-box;
+  width: 70%;
+}
+
+.show_item .right{
+  float: left;
+  float: left;
+  box-sizing: border-box;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  color: #666;
+}
+
+.show_item .right .go{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.show_item .right .go image{
+  width: 100%;
+  height: 100%;
+}

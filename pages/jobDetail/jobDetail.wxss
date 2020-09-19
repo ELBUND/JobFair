@@ -1,0 +1,210 @@
+page{
+  background-color: #e4e4e4;
+}
+
+.company_info{
+  width: 100%;
+  height: 200rpx;
+  background-color: #fff;
+  display: flex;
+}
+
+.logo{
+  float: left;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 4px;
+}
+
+.logo image{
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.info{
+  flex: 1;
+  float: left;
+  height: 100%;
+  margin-left: 20rpx;
+}
+
+.info .i_row{
+  margin-bottom: 14rpx;
+  display: flex;
+}
+
+.i_row .name{
+  width: 380rpx;
+  font-weight: 520;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.i_row .toDetail{
+  flex: 1;
+  color: #1296db;
+}
+
+.i_row .toDetail image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 12rpx;
+}
+
+.i_row .introduction{
+  width: 100%;
+  height: 130rpx;
+  line-height: 42rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  color: #a4a4a4;
+}
+
+.part{
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 20rpx 24rpx;
+}
+
+.title{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  font-size: 34rpx;
+}
+
+.title image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.content{
+  margin-top: 10rpx;
+}
+
+.point{
+  display: flex;
+}
+
+.point_num{
+  width: 36rpx;
+}
+
+.point_text{
+  flex: 1;
+}
+
+.HR_row{
+  display: flex;
+  align-items: center;
+}
+
+.HR_row image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+
+.HR_positon{
+  margin-left: 10rpx;
+}
+
+.HR_row .left{
+  margin-right: 10rpx;
+}
+
+.HR_row .right{
+  flex: 1;
+  text-align: right;
+  margin-right: 20rpx;
+}
+
+.HR_row .makecall{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.fit{
+  width: 100%;
+  height: 180rpx;
+}
+
+.operation{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  padding: 20rpx 40rpx;
+  overflow: hidden;
+  border-top: 1rpx solid #bbbbbb;
+  display: flex;
+  align-items: center;
+}
+
+.addFavor{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150rpx;
+  height: 60rpx;
+  padding: 10rpx 20rpx;
+  border: 1rpx solid #666;
+  border-radius: 4px;
+}
+
+.addFavor.after{
+  border: 1rpx solid #1296db;
+  color: #1296db;
+}
+
+.addFavor image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.sendCV{
+  text-align: center;
+  line-height: 60rpx;
+  width: 400rpx;
+  height: 60rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 4px;
+  background: linear-gradient(to right, #12bff4, #336fee);
+  margin-left: 30rpx;
+  color: #fff;
+}
+
+.delJob_wrap{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  padding: 20rpx 0;
+  overflow: hidden;
+  border-top: 1rpx solid #bbbbbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delJob{
+  width: 400rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #e64340;
+}

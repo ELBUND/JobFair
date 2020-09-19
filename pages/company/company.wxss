@@ -1,0 +1,255 @@
+page{
+  background-color: #e4e4e4;
+}
+
+.head{
+  height: 160rpx;
+  padding: 20rpx;
+  background-color: #fff;
+  display: flex;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.head .logo{
+  width: 120rpx;
+  height: 120rpx;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.head .logo .nologo{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 20rpx;
+  border-radius: 4px;
+}
+
+.head .logo .nologo image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.head .logo .nologo .logotip{
+  font-size: 24rpx;
+  color: #1296db;
+}
+
+.head .logo .haslogo{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.head .logo .haslogo image{
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.head .logo .haslogo .logotip{
+  font-size: 24rpx;
+  color: #1296db;
+}
+
+.head .info{
+  width: 500rpx;
+  padding-left: 20rpx;
+}
+
+.head .change{
+  flex: 1;
+  color: #1296db;
+}
+
+.info .name{
+  font-size: 32rpx;
+}
+
+.info .other{
+  color: #666;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+
+.part{
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 20rpx 24rpx;
+}
+
+.title{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  font-size: 34rpx;
+}
+
+.title image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.content{
+  margin-top: 10rpx;
+}
+
+.content text{
+  font-size: 24rpx;
+  color: #666;
+}
+
+.license{
+  width: 100%;
+}
+
+.photos{
+  width: 100%;
+  height: 260rpx;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.photo{
+  margin: 20rpx;
+  width: 240rpx;
+  height: 240rpx;
+  display: inline-block;
+}
+
+.photo image{
+  width: 100%;
+  height: 100%;
+}
+
+.addPhoto{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.add_modal{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
+}
+
+.add_main{
+  background-color: #fff;
+  width: 640rpx;
+  padding: 30rpx;
+  position: relative;
+  top: -200rpx;
+}
+
+.close{
+  width: 100%;
+  text-align: right;
+}
+
+.close image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.pic{
+  padding: 0 20rpx 20rpx 20rpx;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.pic .pic_add{
+  width: 180rpx;
+  height: 180rpx;
+  float: left;
+  margin: 10rpx;
+}
+
+.pic .pic_add image{
+  width: 100%;
+  height: 100%;
+}
+
+.add_item{
+  width: 180rpx;
+  height: 180rpx;
+  margin: 10rpx;
+  float: left;
+  position: relative;
+}
+
+.add_item image{
+  width: 100%;
+  height: 100%;
+}
+
+.add_item .delPic{
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top: 0;
+  right: 0;
+}
+
+.add_item .delPhoto image{
+  width: 100%;
+  height: 100%;
+}
+
+.tip{
+  background-color: #fff;
+  text-align: right;
+  padding-right: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #8f98b3;
+}
+
+.addConfirm{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content.hidden{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.readmore_tip{
+  color: #1296db;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+
+.nojob{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: #fff;
+}
+
+.nojob text{
+  color: #1296db;
+}
+
+.fit{
+  width: 100%;
+  height: 100rpx;
+}

@@ -1,0 +1,77 @@
+<view class="container">
+	<!-- 顶部搜索以及筛选 -->
+	<view class="head">
+		<view class="search">
+			<icon type="search" size="24" bindtap="search"></icon>
+		</view>
+		<view class="screen {{selectNum>0?'active':''}}" bindtap="screen">筛选<text decode="true" wx:if="{{selectNum>0}}">&nbsp;·&nbsp;{{selectNum}}</text></view>
+		<view class="screen">
+			<picker mode="region" bindchange="city" value="{{city}}">
+				<view class="pickerShow">{{city[1]}}</view>
+			</picker>
+		</view>
+	</view>
+	<!-- 筛选条件选择 -->
+	<view class="modal_wrap" wx:if="{{screen_flag==1}}" animation="{{animation}}">
+		<view class="title">
+			<text>筛选</text>
+			<text wx:if="{{selectNum>0}}"> · {{selectNum}}</text>
+			<image src="/img/close_grey.png" catchtap="close_screen"></image>
+		</view>
+		<view class="screenSelect">
+			<scroll-view scroll-y class="screenScroll">
+				<!-- 学历要求 -->
+				<view class="s_part">
+					<view class="s_title">学历要求</view>
+					<view class="s_content">
+						<view class="select_item {{index_education==index?'active':''}}" wx:for="{{education}}" wx:key="index" data-index="{{index}}" catchtap="eduSelect">{{item.name}}</view>
+					</view>
+				</view>
+				<!-- 薪资待遇 -->
+				<view class="s_part">
+					<view class="s_title">薪资待遇</view>
+					<view class="s_content">
+						<view class="select_item {{index_salary==index?'active':''}}" wx:for="{{salary}}" wx:key="index" data-index="{{index}}" catchtap="salarySelect">{{item.name}}</view>
+					</view>
+				</view>
+				<!-- 行业 -->
+				<view class="s_part">
+					<view class="s_title">行业</view>
+					<view class="s_content">
+						<view class="select_item {{index_trade==index?'active':''}}" wx:for="{{trade}}" wx:key="index" data-index="{{index}}" catchtap="tradeSelect">{{item.name}}</view>
+					</view>
+				</view>
+			</scroll-view>
+			<!-- 清除以及确定选择 -->
+			<view class="operation">
+				<view class="clearSelect" catchtap="btnClear">清除</view>
+				<view class="confirm" catchtap="btnConfirm">确定</view>
+			</view>
+		</view>
+	</view>
+	<!-- 展示相关信息 -->
+	<view class="showContent">
+		<view class="job_item" wx:for="{{jobs}}" wx:key="index" bindtap="jobDetail" data-item="{{item}}">
+			<!-- 职位名称及发布时间 -->
+			<view class="row">
+				<view class="job_name">{{item.name}}</view>
+				<view class="publish_time">{{item.postTime}}</view>
+			</view>
+			<!-- 薪资 -->
+			<view class="row">
+				<view class="job_salary">{{item.salary_start}}k ~ {{item.salary_end}}k</view>
+			</view>
+			<!-- 福利待遇 -->
+			<view class="row" style="border-bottom: 1rpx solid #e4e4e4;padding-bottom: 20rpx">
+				<view class="welfare_item" wx:for="{{item.welfares}}" wx:key="*this">{{item}}</view>
+			</view>
+			<!-- 公司 -->
+			<view class="row">
+				<view class="company">{{item.company}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="fit"></view>
+	<!-- <button type="primary" bindtap="subscribeMsg" style="margin-bottom:40rpx">订阅消息</button>
+	<button type="primary" bindtap="cloudSendMsg">推送订阅消息</button> -->
+</view>

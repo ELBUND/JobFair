@@ -1,0 +1,128 @@
+<view class="contanier">
+	<!-- 顶部logo以及基本信息 -->
+	<view class="head">
+		<view class="logo" bindtap="uploadLogo">
+			<view class="nologo" wx:if="{{logo==''}}">
+				<image src="/img/uploadLogo.png"></image>
+				<view class="logotip">上传Logo</view>
+			</view>
+			<view class="haslogo" wx:else>
+				<image src="{{logo}}"></image>
+				<view class="logotip">点击修改</view>
+			</view>
+		</view>
+		<view class="info">
+			<view class="name">{{company.name}}</view>
+			<view class="other">
+				<text decode="true">{{company.duration}}&nbsp;&nbsp;|&nbsp;&nbsp;{{company.trade}}&nbsp;&nbsp;|&nbsp;&nbsp;{{company.scale}}</text>
+			</view>
+		</view>
+		<view class="change"><text bindtap="change">修改信息</text></view>
+	</view>
+	<!-- 公司介绍 -->
+	<view class="part" style="margin-top: 0">
+		<view class="title">
+			<image src="/img/company.png"></image>
+			公司介绍
+		</view>
+		<view id="introduction" class="content {{readmore.status?'hidden':''}}">
+			<text decode="true">&emsp;&emsp;{{company.introduction}}
+			</text>
+		</view>
+		<!-- 显示查看更多或者收起 -->
+		<view class="readmore_tip" bindtap="toggle" wx:if="{{readmore.show}}">{{readmore.tip}}</view>
+	</view>
+	<!-- 公司营业执照 -->
+	<view class="part">
+		<view class="title">
+			<image src="/img/license.png"></image>
+			公司营业执照
+		</view>
+		<view class="content">
+			<image class="license" src="{{company.license}}" mode="aspectFit" bindtap="prelicense"></image>
+		</view>
+	</view>
+	<!-- 公司环境照片 -->
+	<view class="part">
+		<view class="title">
+			<image src="/img/env.png"></image>
+			公司环境照片(没有添加时不会显示)
+		</view>
+		<view class="content">
+			<scroll-view scroll-x class="photos" wx:if="{{pic.length!=0}}">
+				<view class="photo" wx:for="{{pic}}" wx:key="index">
+					<image src="{{item}}" bindtap="prephoto" data-current="{{item}}"></image>
+				</view>
+			</scroll-view>
+			<view class="addPhoto"><text style="color:#1296db;font-size:30rpx" bindtap="addPhoto">编辑</text></view>
+		</view>
+	</view>
+	<!-- 添加照片弹窗 -->
+	<view class="add_modal" wx:if="{{addPhoto==true}}">
+		<view class="add_main">
+			<!-- 关闭按钮 -->
+			<view class="close">
+				<image src="/img/close_grey.png" catchtap="close"></image>
+			</view>
+			<!-- 主体 -->
+			<view class="pic">
+				<view class="add_item" wx:for="{{pic}}" wx:key="index">
+					<image class="delPic" src="/img/delphoto.png" bindtap="delPic" data-index="{{index}}"></image>
+					<image src="{{item}}" bindtap="prePic" data-index="{{index}}"></image>
+				</view>
+				<view class="pic_add" bindtap="addPic" wx:if="{{pic.length<9}}">
+					<image src="/img/addphoto.png"></image>
+				</view>
+			</view>
+			<view class="tip">最多9张</view>
+			<!-- 确认 -->
+			<view class="addConfirm">
+				<button type="primary" catchtap="addConfirm">确认</button>
+			</view>
+		</view>
+	</view>
+	<!-- 工作地址 -->
+	<view class="part">
+		<view class="title">
+			<image src="/img/work_address.png"></image>
+			公司地址
+		</view>
+		<view class="content">
+			<view class="address">{{address}}</view>
+			<!-- 地图显示 -->
+		</view>
+	</view>
+	<!-- 发布职位 -->
+	<view class="part">
+		<view class="title">
+			<image src="/img/jobs.png"></image>
+			发布职位
+		</view>
+	</view>
+	<!-- 显示发布的职位 -->
+	<view class="job_item" wx:for="{{jobs}}" wx:key="index" bindtap="jobDetail" data-item="{{item}}">
+			<!-- 职位名称及发布时间 -->
+			<view class="row">
+				<view class="job_name">{{item.name}}</view>
+				<view class="publish_time">{{item.postTime}}</view>
+			</view>
+			<!-- 薪资 -->
+			<view class="row">
+				<view class="job_salary">{{item.salary_start}}k ~ {{item.salary_end}}k</view>
+			</view>
+			<!-- 福利待遇 -->
+			<view class="row" style="border-bottom: 1rpx solid #e4e4e4;padding-bottom: 20rpx">
+				<view class="welfare_item" wx:for="{{item.welfares}}" wx:key="*this">{{item}}</view>
+			</view>
+			<!-- 浏览次数以及投递数 -->
+			<view class="row">
+				<view class="count">浏览 {{item.browseNum}}</view>
+				<view class="count">投递 {{item.deliverNum}}</view>
+			</view>
+		</view>
+	<!-- 未发布职位时显示 -->
+	<view class="nojob" wx:if="{{jobs.length==0}}">
+		还没有职位哦~<text bindtap="toCreat">去创建</text>
+	</view>
+	<view class="fit"></view>
+</view>

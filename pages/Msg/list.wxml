@@ -1,0 +1,40 @@
+<view class="container">
+	<!-- 没有消息时显示 -->
+	<view class="noMsg" wx:if="{{rooms.length==0}}">
+		<image src="/img/none.png" mode="aspectFit"></image>
+	</view>
+	<view class="showList">
+		<view class="rooms">
+			<!-- 登录状态为公司时的显示 -->
+			<view class="room_item" hover-class="tap" hover-stay-time="100" wx:for="{{rooms}}" wx:key="index" bindtap="enterRoom" data-roomid="{{item.roomid}}" data-photo="{{item.student_photo}}" data-student="{{item.student}}" wx:if="{{isCompany==true}}">
+				<!-- 照片 -->
+				<view class="photo">
+					<image src="{{item.student_photo}}"></image>
+				</view>
+				<view class="info">
+					<!-- 名称 -->
+					<view class="name">{{item.student}}</view>
+					<!-- 显示最新消息 -->
+					<view class="newMsg">消息: {{item.newMsg.content}}</view>
+				</view>
+			</view>
+			<!-- 用户登录状态下的显示 -->
+			<view class="room_item" hover-class="tap" hover-stay-time="100" wx:for="{{rooms}}" wx:key="index" bindtap="enterRoom" data-roomid="{{item.roomid}}" data-photo="{{item.student_photo}}" data-company="{{item.company}}" data-hr="{{item.sender}}" wx:if="{{isCompany==false}}">
+				<!-- 照片 -->
+				<view class="photo">
+					<image src="{{item.hr_photo}}"></image>
+				</view>
+				<view class="info">
+					<view class="row">
+						<!-- 名称 -->
+						<view class="name">{{item.sender}}</view>
+						<!-- 公司名称 -->
+						<view class="company">{{item.company}}</view>
+					</view>	
+					<!-- 显示最新消息 -->
+					<view class="newMsg">消息: {{item.newMsg.msg}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

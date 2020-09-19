@@ -1,0 +1,69 @@
+page{
+  background-color: #e4e4e4;
+}
+
+.noMsg{
+  width: 100%;
+  text-align: center;
+  padding-top: 100rpx;
+}
+
+.showList{
+  width: 100%;
+}
+
+.rooms{
+  background-color: #fff;
+}
+
+.room_item{
+  display: flex;
+  padding: 20rpx 40rpx;
+}
+
+.tap{
+  background-color: rgba(0, 0, 0, .05);
+}
+
+.photo{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #e4e4e4;
+}
+
+.photo image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.info{
+  flex: 1;
+  padding-left: 30rpx;
+  padding-top: 10rpx;
+}
+
+.info .newMsg{
+  color: #acacac;
+}
+
+.info .row{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.info .name{
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.info .row .company{
+  color: #666;
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-left: 20rpx;
+}

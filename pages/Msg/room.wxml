@@ -1,0 +1,31 @@
+<view class="container">
+	<!-- 显示对方的信息 -->
+	<view class="targetInfo" wx:if="{{company!='undefined'}}">
+		<view class="nickname">{{hr}}</view>
+		<view class="company">{{company}}</view>
+	</view>
+	<view class="targetInfo" wx:else>
+		<view class="nickname">{{student}}</view>
+	</view>
+	<!-- 消息列表 -->
+	<view class="showMsg" id="showMsg">
+		<view class="msg_item" wx:for="{{msg}}" wx:key="index">
+			<!-- 头像 -->
+			<view class="avatar {{item._openid==myopenid?'mine':''}}">
+				<image src="{{item.avatarUrl}}"></image>
+			</view>
+			<view class="item {{item._openid==myopenid?'mine':''}}">
+				<text user-select="true">{{item.content}}</text>
+			</view>
+		</view>
+	</view>
+	<!-- 占位容器 -->
+	<view class="fit"></view>
+	<!-- 输入消息 -->
+	<view class="sendMsg">
+		<view class="input_wrap">
+			<input placeholder="输入聊天消息" bindinput="inputing" value="{{content}}" cursor-spacing="20" confirm-type="send" bindconfirm="sendMsg" data-roomid="{{roomid}}" confirm-hold="true"></input>
+		</view>
+		<!-- <view class="send" hover-class="tap" hover-stay-time="100" catchtap="sendMsg" data-roomid="{{roomid}}">发送</view> -->
+	</view>
+</view>

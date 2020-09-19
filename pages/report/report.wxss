@@ -1,0 +1,115 @@
+page{
+  background-color: #e4e4e4;
+}
+
+.part{
+  padding: 0 24rpx;
+  background-color: #fff;
+}
+
+.title{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.input_text textarea{
+  width: 100%;
+  height: 160rpx;
+}
+
+.showNum{
+  text-align: right;
+  padding: 10rpx 20rpx;
+}
+
+.phone{
+  display: flex;
+  align-items: center;
+  border-top: 1rpx solid #f0f0f0;
+  border-bottom: 1rpx solid #f0f0f0;
+  height: 90rpx;
+}
+
+.phone .permit{
+  margin-left: 40rpx;
+  color: #4996ee;
+  background-color: #fff;
+  padding: 0;
+  line-height: 80rpx;
+}
+
+.addPhoto{
+  overflow: hidden;
+}
+
+.add{
+  width: 180rpx;
+  height: 180rpx;
+  margin: 10rpx 26rpx;
+  float: left;
+}
+
+.add image{
+  width: 100%;
+  height: 100%;
+}
+
+.add_item{
+  width: 180rpx;
+  height: 180rpx;
+  margin: 10rpx 26rpx;
+  float: left;
+  position: relative;
+}
+
+.add_item image{
+  width: 100%;
+  height: 100%;
+}
+
+.add_item .delphoto{
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top: 0;
+  right: 0;
+}
+
+.add_item .delphoto image{
+  width: 100%;
+  height: 100%;
+}
+
+.tip{
+  text-align: right;
+  margin-right: 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #8f98b3;
+}
+
+.fit{
+  width: 100%;
+  height: 100rpx;
+}
+
+.confirm{
+  background-color: #fff;
+  width: 100%;
+  height: 120rpx;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm .btnConfirm{
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: linear-gradient(to right, #38c9f6, #4d81eb);
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+}

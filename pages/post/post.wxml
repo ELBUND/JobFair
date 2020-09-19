@@ -1,0 +1,33 @@
+<view class="container">
+	<!-- 显示职位 -->
+	<view class="postJob">
+    <!-- 标题 -->
+    <view class="title">已发布</view>
+		<view class="job_item" wx:for="{{jobs}}" wx:key="index" bindtap="jobDetail" data-item="{{item}}">
+			<!-- 职位名称及发布时间 -->
+			<view class="row">
+				<view class="job_name">{{item.name}}</view>
+				<view class="publish_time">{{item.postTime}}</view>
+			</view>
+			<!-- 薪资 -->
+			<view class="row">
+				<view class="job_salary">{{item.salary_start}}k ~ {{item.salary_end}}k</view>
+			</view>
+			<!-- 福利待遇 -->
+			<view class="row" style="border-bottom: 1rpx solid #e4e4e4;padding-bottom: 20rpx">
+				<view class="welfare_item" wx:for="{{item.welfares}}" wx:key="*this">{{item}}</view>
+			</view>
+			<!-- 浏览次数以及投递数 -->
+			<view class="row">
+				<view class="count">浏览 {{item.browseNum}}</view>
+				<view class="count">投递 {{item.deliverNum}}</view>
+			</view>
+		</view>
+	</view>
+  <!-- 占位容器 -->
+  <view class="fit"></view>
+  <!-- 创建职位 -->
+  <view class="creatJob">
+    <button class="btncreatJob" catchtap="jobCreat">创建职位</button>
+  </view>
+</view>

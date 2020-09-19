@@ -1,0 +1,29 @@
+.wrap{
+  padding: 0 30rpx;
+}
+
+.row{
+  padding: 30rpx 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+}
+
+.row .left{
+  flex: 1;
+}
+
+.row .left input {
+  font-size: 34rpx;
+}
+
+.row .right{
+  flex: 1;
+  text-align: right;
+}
+
+.row .right image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 20rpx;
+}

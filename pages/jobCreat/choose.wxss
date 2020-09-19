@@ -1,0 +1,58 @@
+.currentSelected {
+  padding: 10rpx 30rpx;
+  font-size: 32rpx;
+}
+
+.select_wrap {
+  padding: 10rpx 30rpx;
+  height: 1200rpx;
+  position: relative;
+}
+
+.scrollTab{
+  height: 100%;
+}
+
+.select_wrap .vtab {
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #eee;
+  font-size: 32rpx;
+  color: #444;
+}
+
+.select_wrap .vtab.active {
+  color: #1296db;
+}
+
+.select_wrap .vtab .right {
+  float: right;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 14rpx;
+}
+
+.select_wrap .subitem_wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.select_wrap .subitem_wrap .stayRight {
+  float: right;
+  width: 460rpx;
+  height: 100%;
+  background-color: #fff;
+  font-size: 32rpx;
+  transform: translateX(230px);
+}
+
+.scrollSub{
+  height: 100%;
+}
+
+.subitem {
+  padding: 30rpx;
+}

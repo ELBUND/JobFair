@@ -1,0 +1,77 @@
+<view class="container">
+
+	<view class="CVShow">
+		<!-- 显示状态 -->
+		<view class="showStatus">
+			<image wx:if="{{detail.status=='wait'}}" src="/img/nopass.png"></image>
+			<image wx:if="{{detail.status=='pass'}}" src="/img/pass.png"></image>
+		</view>
+		<view class="head">
+			<!-- 左侧基本信息显示 -->
+			<view class="info">
+				<view class="i_row" style="font-size: 40rpx;font-weight:600">{{deliverer.name}}</view>
+				<view class="i_row" bindtap="makecall" data-phone="{{deliverer.phone}}"><text style="color: #1296db">{{deliverer.phone}}</text></view>
+				<view class="i_row" bindtap="copy" data-text="{{deliverer.email}}"><text style="color:#1296db">{{deliverer.email}}</text></view>
+				<view class="i_row">微信号: <text style="color:#1296db" bindtap="copy" data-text="{{deliverer.weixin}}">{{deliverer.weixin}}</text></view>
+			</view>
+			<!-- 右侧头像照片显示 -->
+			<view class="photo">
+				<image src="{{deliverer.photo}}"></image>
+			</view>
+		</view>
+		<!-- 个人总结显示 -->
+		<view class="info_item" wx:if="{{deliverer.summaryList.length!=0}}">
+			<view class="title">个人总结</view>
+			<view class="content">
+				<view class="c_row" wx:for="{{deliverer.summaryList}}" wx:key="index">
+					<image src="/img/point.png"></image>
+					<view class="c_text" style="flex:1">{{item.sdetail}}</view>
+				</view>
+			</view>
+		</view>
+		<!-- 教育经历 -->
+		<view class="info_item">
+			<view class="title">教育经历</view>
+			<view class="content">
+				<view class="c_row">
+					<view style="flex:1;font-weight:600">{{deliverer.school}}</view>
+					<view style="flex:1;text-align:right">{{deliverer.graduation_time}}</view>
+				</view>
+				<view class="c_row">{{deliverer.education}} {{deliverer.college}}</view>
+				<view class="c_row">{{deliverer.major}}</view>
+				<view class="c_row" style="display: block;text-align: right;">{{deliverer.school_city}}</view>
+			</view>
+		</view>
+		<!-- 项目经历 -->
+		<view class="info_item" wx:if="{{deliverer.projectList.length!=0}}">
+			<view class="title">项目经历</view>
+			<view class="content" wx:for="{{deliverer.projectList}}" wx:key="index">
+				<view class="c_row">
+					<view style="flex:1;font-weight:600">{{item.pname}}</view>
+					<view style="flex:1;text-align:right">{{item.ptime}}</view>
+				</view>
+				<view class="c_row">
+					{{item.pjob}}
+				</view>
+				<view class="c_row">
+					{{item.pdetail}}
+				</view>
+			</view>
+		</view>
+		<!-- 其他项 -->
+		<view class="info_item" wx:if="{{deliverer.otherList.length!=0}}">
+			<view class="title">成就/证书</view>
+			<view class="content">
+				<view class="c_row" wx:for="{{deliverer.otherList}}" wx:key="index">
+					<image src="/img/point.png"></image>
+					<view class="c_text">{{item.odetail}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="operation">
+			<button type="primary" bindtap="pass" wx:if="{{detail.status=='wait'}}">通过</button>
+			<button class="btnCancel" bindtap="cancel" wx:if="{{detail.status=='pass'}}">撤销</button>
+		</view>
+		<view class="fit"></view>
+	</view>
+</view>

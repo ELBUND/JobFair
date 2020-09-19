@@ -1,0 +1,60 @@
+<view class="container">
+	<!-- 顶部搜索框 -->
+	<view class="head">
+		<view class="searchBar_wrap">
+			<!-- 选择城市 -->
+			<view class="citySelect">
+				<picker mode="region" bindchange="city" value="{{city}}">
+					<view class="pickerShow">{{city[1]}}</view>
+				</picker>
+				<image src="/img/down.png"></image>
+			</view>
+			<!-- 输入框 -->
+			<input placeholder="请输入职位或公司" bindconfirm="search" value="{{inputValue}}"></input>
+		</view>
+		<view class="operation" bindtap="cancel">取消</view>
+	</view>
+	<!-- 搜索历史 -->
+	<view class="history" wx:if="{{history_flag!=1}}">
+		<view class="title">
+			搜索历史
+			<image class="del" src="/img/del.png" bindtap="clearHistory"></image>
+		</view>
+		<view class="content">
+			<view class="history_item" wx:for="{{history}}" wx:key="index" bindtap="selectHistory" data-item="{{item}}">{{item}}</view>
+		</view>
+	</view>
+	<!-- 显示搜索结果 -->
+	<view class="showResult">
+		<!-- 显示公司 -->
+		<view class="result_company" wx:for="{{result_company}}" wx:key="index" bindtap="companyDetail" data-companyid="{{item.companyid}}">
+			<view class="logo">
+				<image src="{{item.logo}}"></image>
+			</view>
+			<view class="info">
+				<view class="name">{{item.name}}</view>
+				<view class="trade">{{item.scale}} | {{item.trade}}</view>
+			</view>
+		</view>
+		<!-- 显示职位 -->
+		<view class="job_item" wx:for="{{result}}" wx:key="index" bindtap="jobDetail" data-item="{{item}}">
+			<!-- 职位名称及发布时间 -->
+			<view class="row">
+				<view class="job_name">{{item.name}}</view>
+				<view class="publish_time">{{item.postTime}}</view>
+			</view>
+			<!-- 薪资 -->
+			<view class="row">
+				<view class="job_salary">{{item.salary_start}}k ~ {{item.salary_end}}k</view>
+			</view>
+			<!-- 福利待遇 -->
+			<view class="row" style="border-bottom: 1rpx solid #e4e4e4;padding-bottom: 20rpx">
+				<view class="welfare_item" wx:for="{{item.welfares}}" wx:key="*this">{{item}}</view>
+			</view>
+			<!-- 公司 -->
+			<view class="row">
+				<view class="company">{{item.company}}</view>
+			</view>
+		</view>
+	</view>
+</view>

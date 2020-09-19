@@ -1,0 +1,226 @@
+page{
+  background-color: #e4e4e4;
+}
+
+.row{
+  padding: 10rpx 20rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.row .title{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-weight: 600;
+}
+
+.row .content input{
+  margin-left: 40rpx;
+  width: 500rpx;
+}
+
+.row .content .pickerShow{
+  width: 500rpx;
+  height: 100%;
+  line-height: 80rpx;
+  float: left;
+  color: #1296db;
+  margin-left: 40rpx;
+}
+
+.addPhoto{
+  padding: 0 20rpx 20rpx 20rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.add{
+  width: 240rpx;
+  height: 240rpx;
+}
+
+.add image{
+  width: 100%;
+  height: 100%;
+}
+
+.photo .license{
+  width: 100%;
+}
+
+.photo .tip{
+  color: #666;
+  width: 100%;
+  text-align: center;
+}
+
+.remark{
+  padding: 0 20rpx 20rpx 20rpx;
+  background-color: #fff;
+}
+
+.remark textarea{
+  width: 100%;
+}
+
+.row .select{
+  width: 560rpx;
+  height: 80rpx;
+}
+
+.row .select input{
+  width: 400rpx;
+  float: left;
+  height: 100%;
+  line-height: 80rpx;
+}
+
+.row .select image{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin-top: 20rpx;
+}
+
+.chooseTrade{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 12;
+}
+
+.chooseTrade .trader_wrap{
+  width: 650rpx;
+  height: 940rpx;
+  background-color: #fff;
+  padding: 20rpx;
+  opacity: 0;
+}
+
+.chooseTrade .trader_wrap .t_main{
+  width: 100%;
+  overflow: hidden;
+}
+
+.chooseTrade .trader_wrap .trade_item{
+  width: 190rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  margin: 10rpx;
+  float: left;
+  border: 1rpx solid #666;
+  border-radius: 4px;
+  color: #666;
+}
+
+.chooseTrade .trader_wrap .trade_item.selected{
+  border: 1rpx solid #1296db;
+  border-radius: 4px;
+  color: #1296db;
+}
+
+.btnTrade{
+  margin-top: 30rpx;
+}
+
+.t_title{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.t_title text{
+  float: left;
+  font-size: 34rpx;
+}
+
+.t_title image{
+  float: right;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.confirm{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1rpx solid #f0f0f0;
+  z-index: 11;
+}
+
+.confirm .btnRegister{
+  color: #fff;
+  font-weight: 500;
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0;
+  text-align: center;
+  background: linear-gradient(to right, #38c9f6, #4d81eb);
+  z-index: 11;
+}
+
+.fit{
+  width: 100%;
+  height: 200rpx;
+}
+
+.success{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showSuccess{
+  width: 600rpx;
+  height: 680rpx;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 40rpx;
+}
+
+.showSuccess .icon{
+  width: 100%;
+  text-align: center;
+  height: 140rpx;
+}
+
+.showSuccess .s_title{
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.showSuccess .s_content{
+  text-align: center;
+  margin-top: 40rpx;
+}
+
+.showSuccess .s_row{
+  width: 100%;
+  text-align: center;
+  margin: 10rpx 0;
+}
+
+.showSuccess .s_op{
+  margin-top: 60rpx;
+}

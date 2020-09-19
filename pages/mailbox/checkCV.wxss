@@ -1,0 +1,37 @@
+@import "../myCV/myCV.wxss";
+
+.fit{
+  width: 100%;
+  height: 60rpx;
+  background-color: #fff;
+}
+
+.CVShow{
+  position: relative;
+}
+
+.showStatus{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 140rpx;
+  height: 120rpx;
+  z-index: 11;
+  margin: 10rpx 10rpx 0 0;
+}
+
+.showStatus image{
+  width: 100%;
+  height: 100%;
+}
+
+.operation{
+  width: 100%;
+  background-color: #fff;
+  padding-top: 50rpx;
+}
+
+.btnCancel{
+  background-color: #fa5151;
+  color: #fff;
+}

@@ -1,0 +1,22 @@
+<view class="container">
+	<view class="currentSelected">当前选择：{{currentSelect}}</view>
+	<view class="select_wrap">
+		<!-- 选项卡 -->
+		<scroll-view scroll-y class="scrollTab">
+			<view class="vtab {{current==index?'active':''}}" wx:for="{{vtabs}}" wx:key="index" bindtap="showSubitem" data-index="{{index}}">
+				{{item.tab}}
+				<image class="right" src="/img/right.png"></image>
+			</view>
+		</scroll-view>
+		<!-- 子菜单 -->
+		<view class="subitem_wrap" wx:if="{{flag==1}}" catchtap="close">
+			<view class="stayRight" catchtap="in" animation="{{animation}}">
+				<scroll-view scroll-y class="scrollSub">
+					<view class="subitem" wx:for="{{vtabs[current].subitem}}" wx:key="index" catchtap="select" data-index="{{index}}">
+						{{item}}
+					</view>
+				</scroll-view>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,193 @@
+page{
+  background-color: #e4e4e4;
+}
+
+.part{
+  padding: 0 20rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.part .row{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #f0f0f0;
+  padding: 30rpx 0;
+}
+
+.part .row .title{
+  height: 100%;
+  width: 150rpx;
+  font-weight: 600;
+}
+
+.part .row input{
+  width: 450rpx;
+}
+
+.part .row .salary{
+  display: flex;
+}
+
+.part .row .salary .picker_salary{
+  width: 200rpx;
+  height: 100%;
+  text-align: center;
+  color: #1296db;
+}
+
+.part .row .salary input{
+  width: 216rpx;
+}
+
+.part .row .select{
+  width: 560rpx;
+  height: 80rpx;
+}
+
+.part .row .select input{
+  width: 400rpx;
+  float: left;
+  height: 100%;
+  line-height: 80rpx;
+}
+
+.part .row .select .pickerShow{
+  width: 500rpx;
+  height: 100%;
+  line-height: 80rpx;
+  float: left;
+  color: #1296db;
+}
+
+.part .row .select image{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin-top: 20rpx;
+}
+
+.part .welfares_wrap{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.part .welfares_wrap .welfares{
+  width: 600rpx;
+  height: 580rpx;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 20rpx;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.part .welfares_wrap .welfares .w_title{
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-bottom: 20rpx;
+  padding: 0 10rpx;
+  font-size: 34rpx;
+}
+
+.part .welfares_wrap .welfares .w_title image{
+  width: 30rpx;
+  height: 30rpx;
+  float: right;
+  margin-top: 10rpx;
+}
+
+.part .welfares_wrap .welfares .welfare_item{
+  float: left;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 4px;
+  margin: 10rpx;
+  padding: 10rpx 20rpx;
+  border: 1rpx solid #000;
+}
+
+.part .welfares_wrap .welfares .welfare_item.selected{
+  color: #1296db;
+  border: 1rpx solid #1296db;
+  border-radius: 4px;
+}
+
+.part .row .add_item{
+  padding: 0 20rpx;
+  float: left;
+  margin: 6rpx 10rpx;
+  color: #1296db;
+  border: 1rpx solid #1296db;
+  border-radius: 4px;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.part .row .add{
+  float: left;
+  height: 60rpx;
+  border: 1rpx solid #1296db;
+  border-radius: 4px;
+  color: #1296db;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx 0 10rpx;
+  margin: 6rpx 10rpx;
+}
+
+.part .row .add image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.part .row .addPoint{
+  display: flex;
+  width: 500rpx;
+  height: 100%;
+  align-items: center;
+}
+
+.part .row .icon_add{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.part .points{
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.part .points .icon_point{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.part .points input{
+  width: 580rpx
+}
+
+.part .points .icon_del{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+}
+
+.fit{
+  width: 100%;
+  height: 200rpx;
+}

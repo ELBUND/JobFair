@@ -1,0 +1,114 @@
+page {
+  background-color: #e4e4e4;
+}
+
+.head {
+  padding: 20rpx;
+  background-color: #fff;
+  display: flex;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.head .logo {
+  width: 120rpx;
+  height: 120rpx;
+  background-color: aqua;
+}
+
+.head .logo .haslogo {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.head .logo .haslogo image {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.head .info {
+  width: 500rpx;
+  padding-left: 20rpx;
+}
+
+.info .name {
+  font-size: 32rpx;
+}
+
+.info .other {
+  color: #666;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+
+.head .report {
+  flex: 1;
+  color: #1296db;
+}
+
+.part {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 20rpx 24rpx;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  font-size: 34rpx;
+}
+
+.title image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.content {
+  margin-top: 10rpx;
+}
+
+.license{
+  width: 100%;
+}
+
+.photos{
+  width: 100%;
+  height: 260rpx;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.photo{
+  margin: 20rpx;
+  width: 240rpx;
+  height: 240rpx;
+  display: inline-block;
+}
+
+.photo image{
+  width: 100%;
+  height: 100%;
+}
+
+.content text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.content.hidden {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.readmore_tip {
+  color: #1296db;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}

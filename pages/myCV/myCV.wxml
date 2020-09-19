@@ -1,0 +1,81 @@
+<view class="container">
+	<!-- 未创建简历显示 -->
+	<view class="hasNoCV" wx:if="{{hasCV==false}}">
+		<view class="pic">
+			<image src="/img/none.png"></image>
+		</view>
+		<view class="add">
+			还没有简历哦？<text style="color:#42a5f5" bindtap="creatCV">点击创建</text>
+		</view>
+	</view>
+	<!-- 创建后显示 -->
+	<view class="CVShow" wx:else>
+		<view class="head">
+			<!-- 左侧基本信息显示 -->
+			<view class="info">
+				<view class="i_row" style="font-size: 40rpx;font-weight:600">{{userCV.name}}</view>
+				<view class="i_row">{{userCV.phone}}</view>
+				<view class="i_row">{{userCV.email}}</view>
+				<view class="i_row">微信号: {{userCV.weixin}}</view>
+				<!-- <view class="i_row">求职意向: {{userCV.jobWanted}}</view> -->
+			</view>
+			<!-- 右侧头像照片显示 -->
+			<view class="photo">
+				<image src="{{userCV.photo}}"></image>
+			</view>
+		</view>
+		<!-- 个人总结显示 -->
+		<view class="info_item" wx:if="{{userCV.summaryList.length!=0}}">
+			<view class="title">个人总结</view>
+			<view class="content">
+				<view class="c_row" wx:for="{{userCV.summaryList}}" wx:key="index">
+					<image src="/img/point.png"></image>
+					<view class="c_text" style="flex:1">{{item.sdetail}}</view>
+				</view>
+			</view>
+		</view>
+		<!-- 教育经历 -->
+		<view class="info_item">
+			<view class="title">教育经历</view>
+			<view class="content">
+				<view class="c_row">
+					<view style="flex:1;font-weight:600">{{userCV.school}}</view>
+					<view style="flex:1;text-align:right">{{userCV.graduation_time}}</view>
+				</view>
+				<view class="c_row">{{userCV.education}} {{userCV.college}}</view>
+				<view class="c_row">{{userCV.major}}</view>
+				<view class="c_row" style="display: block;text-align: right;">{{userCV.school_city}}</view>
+			</view>
+		</view>
+		<!-- 项目经历 -->
+		<view class="info_item" wx:if="{{userCV.projectList.length!=0}}">
+			<view class="title">项目经历</view>
+			<view class="content" wx:for="{{userCV.projectList}}" wx:key="index">
+				<view class="c_row">
+					<view style="flex:1;font-weight:600">{{item.pname}}</view>
+					<view style="flex:1;text-align:right">{{item.ptime}}</view>
+				</view>
+				<view class="c_row">
+					{{item.pjob}}
+				</view>
+				<view class="c_row">
+					{{item.pdetail}}
+				</view>
+			</view>
+		</view>
+		<!-- 其他项 -->
+		<view class="info_item" wx:if="{{userCV.otherList.length!=0}}">
+			<view class="title">成就/证书</view>
+			<view class="content">
+				<view class="c_row" wx:for="{{userCV.otherList}}" wx:key="index">
+					<image src="/img/point.png"></image>
+					<view class="c_text">{{item.odetail}}</view>
+				</view>
+			</view>
+		</view>
+		<!-- 占位容器，补充白色背景 -->
+		<view class="change">
+			<button type="primary" bindtap="changeCV">修改简历</button>
+		</view>
+	</view>
+</view>

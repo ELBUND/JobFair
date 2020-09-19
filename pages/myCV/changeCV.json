@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "list": "/component/wx-index-list/wx-index-list"
+  },
+  "navigationBarTitleText": "简历创建"
+}

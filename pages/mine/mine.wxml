@@ -1,0 +1,196 @@
+<view class="container">
+	<view class="userInfo">
+		<!-- 未登录前 -->
+		<view class="beforLogin" wx:if="{{hasLogin==false}}">
+			<image src="/img/user.png"></image>
+			<button type="primary" style="width: 200rpx;height: 70rpx;" open-type="getUserInfo" bindgetuserinfo="login">注册/登录</button>
+		</view>
+		<!-- 登录后 -->
+		<view class="afterLogin" wx:else>
+			<image src="{{userInfo.avatarUrl}}"></image>
+			<view>{{userInfo.nickName}}</view>
+			<view class="companyLogo" wx:if="{{isCompany==true}}">
+				<view class="showLogo">企业</view>
+			</view>
+		</view>
+	</view>
+	<!-- 功能服务 -->
+	<view class="nav">
+		<view class="nav_item" bindtap="myCV" hover-class="tap" hover-stay-time="100">
+			<image class="item_left" src="/img/cv.png"></image>
+			<view class="item_right">
+				<view class="item_text">我的在线简历</view>
+				<view class="item_next">
+					<image src="/img/right.png"></image>
+				</view>
+			</view>
+		</view>
+		<view class="nav_item" bindtap="jobWanted" hover-class="tap" hover-stay-time="100">
+			<image class="item_left" src="/img/jobwanted.png"></image>
+			<view class="item_right">
+				<view class="item_text">管理求职意向</view>
+				<view class="item_next">
+					<image src="/img/right.png"></image>
+				</view>
+			</view>
+		</view>
+		<view class="nav_item" bindtap="myFavor" hover-class="tap" hover-stay-time="100">
+			<image class="item_left" src="/img/favor.png"></image>
+			<view class="item_right">
+				<view class="item_text">我的收藏</view>
+				<view class="item_next">
+					<image src="/img/right.png"></image>
+				</view>
+			</view>
+		</view>
+		<view class="nav_item" bindtap="mySend" hover-class="tap" hover-stay-time="100">
+			<image class="item_left" src="/img/send.png"></image>
+			<view class="item_right">
+				<view class="item_text">已投递</view>
+				<view class="item_next">
+					<image src="/img/right.png"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 企业入口 -->
+	<view class="forCompany" wx:if="{{isCompany==false}}" hover-class="tap" hover-stay-time="100">
+		<view class="nav_item" bindtap="companyEntrance">
+			<image class="item_left" src="/img/forCompany.png"></image>
+			<view class="item_right">
+				<view class="item_text">企业入口</view>
+				<view class="item_next">
+					<image src="/img/right.png"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 我的企业 -->
+	<view class="forCompany" wx:if="{{isCompany==true}}">
+		<view class="nav_item" bindtap="company" hover-class="tap" hover-stay-time="100">
+			<image class="item_left" src="/img/company.png"></image>
+			<view class="item_right">
+				<view class="item_text">我的企业</view>
+				<view class="item_next">
+					<image src="/img/right.png"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 发布职位 -->
+	<view class="nav_item" wx:if="{{isCompany==true}}" bindtap="post" hover-class="tap" hover-stay-time="100">
+		<image class="item_left" src="/img/jobs.png"></image>
+		<view class="item_right">
+			<view class="item_text">发布职位</view>
+			<view class="item_next">
+				<image src="/img/right.png"></image>
+			</view>
+		</view>
+	</view>
+	<!-- 投递箱 -->
+	<view class="nav_item" wx:if="{{isCompany==true}}" bindtap="mailbox" hover-class="tap" hover-stay-time="100">
+		<image class="item_left" src="/img/mailbox.png"></image>
+		<view class="item_right">
+			<view class="item_text">投递箱</view>
+			<view class="item_next">
+				<image src="/img/right.png"></image>
+			</view>
+		</view>
+	</view>
+	<!-- 招贤纳士 -->
+	<view class="nav_item" wx:if="{{isCompany==true}}" bindtap="looking" hover-class="tap" hover-stay-time="100">
+		<image class="item_left" src="/img/looking.png"></image>
+		<view class="item_right">
+			<view class="item_text">招贤纳士</view>
+			<view class="item_next">
+				<image src="/img/right.png"></image>
+			</view>
+		</view>
+	</view>
+	<!-- 修改密码 -->
+	<view class="nav_item" wx:if="{{isCompany==true}}" bindtap="changePwd_modal" hover-class="tap" hover-stay-time="100">
+		<image class="item_left" src="/img/password.png"></image>
+		<view class="item_right">
+			<view class="item_text">修改密码</view>
+			<view class="item_next">
+				<image src="/img/right.png"></image>
+			</view>
+		</view>
+	</view>
+	<!-- 修改密码弹窗 -->
+	<view class="changePwd_wrap" wx:if="{{changePwd==true}}" catchtap="closeChangePwd">
+		<view class="changePwd_modal" catchtap="in" animation="{{animation}}">
+			<view class="close">
+				<image src="/img/close_grey.png" catchtap="closeChangePwd"></image>
+			</view>
+			<view class="c_title">修改密码</view>
+			<form catchsubmit="changePwd">
+				<view class="c_row" style="margin-bottom:0">
+					<view class="input_border {{status=='oldPwd'?'active':''}}">
+						<image src="/img/password.png"></image>
+						<input name='oldPwd' placeholder="输入旧密码" type="password" bindfocus="focus" data-current="oldPwd"></input>
+					</view>
+				</view>
+				<view class="error_tip">{{error_tip}}</view>
+				<view class="c_row">
+					<view class="input_border {{status=='newPwd'?'active':''}}">
+						<image src="/img/password.png"></image>
+						<input name='newPwd' placeholder="输入新密码" type="password" bindfocus="focus" data-current="newPwd"></input>
+					</view>
+				</view>
+				<view class="c_row">
+					<view class="input_border {{status=='newPwdAgain'?'active':''}}">
+						<image src="/img/password.png"></image>
+						<input name='newPwdAgain' placeholder="再次输入新密码" type="password" bindfocus="focus" data-current="newPwdAgain"></input>
+					</view>
+				</view>
+				<view class="c_row">
+					<button class="btnLogin" form-type="submit">确认修改</button>
+				</view>
+			</form>
+		</view>
+	</view>
+	<!-- 退出登录 -->
+	<view class="nav_item" wx:if="{{isCompany==true}}" bindtap="logout" hover-class="tap" hover-stay-time="100">
+		<image class="item_left" src="/img/logout.png"></image>
+		<view class="item_right">
+			<view class="item_text">退出登录</view>
+			<view class="item_next">
+				<image src="/img/right.png"></image>
+			</view>
+		</view>
+	</view>
+	<view class="fit"></view>
+	<!-- 企业登录或者注册弹窗 -->
+	<view class="companyLogin" wx:if="{{companyLogin==true}}" bindtap="close">
+		<view class="login_main" catchtap="in">
+			<view class="close">
+				<image src="/img/close_grey.png" catchtap="close"></image>
+			</view>
+			<view class="c_title">企业登录</view>
+			<form catchsubmit="companyLogin">
+				<view class="c_row" style="margin-bottom:0">
+					<view class="input_border {{status=='account'?'active':''}}">
+						<image src="/img/forCompany.png"></image>
+						<input name='account' placeholder="输入企业账号或公司名称" bindfocus="focus" data-current="account"></input>
+					</view>
+				</view>
+				<view class="error_tip">{{error_tip}}</view>
+				<view class="c_row">
+					<view class="input_border {{status=='password'?'active':''}}">
+						<image src="/img/password.png"></image>
+						<input name='password' placeholder="输入密码" type="password" bindfocus="focus" data-current="password"></input>
+					</view>
+				</view>
+				<view class="c_row">
+					<button class="btnLogin" form-type="submit">登 录</button>
+				</view>
+			</form>
+			<view class="tip" bindtap="toRegister">没有注册过账号请点这里</view>
+		</view>
+	</view>
+</view>
+
+<!-- <button type="primary" bindtap="upload" style="margin-bottom: 20rpx">上传</button>
+<button type="primary" bindtap="check" style="margin-bottom: 20rpx">查看文件列表</button>
+<button type="primary" bindtap="download">查看pdf</button> -->

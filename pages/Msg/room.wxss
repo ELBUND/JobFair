@@ -1,0 +1,103 @@
+page {
+  background-color: #e4e4e4;
+}
+
+.targetInfo{
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  padding: 20rpx 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 12;
+}
+
+.targetInfo .nickname{
+  font-size: 36rpx;
+}
+
+.targetInfo .company{
+  color: #666;
+  font-size: 30rpx;
+}
+
+.showMsg {
+  overflow: hidden;
+  padding: 10rpx 30rpx;
+  margin-top: 120rpx;
+}
+
+.msg_item {
+  overflow: hidden;
+  margin-top: 30rpx;
+}
+
+.msg_item .avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  float: left;
+}
+
+.msg_item .avatar.mine{
+  float: right;
+}
+
+.msg_item .avatar image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.msg_item .item {
+  padding: 10rpx 20rpx;
+  background-color: #fff;
+  border-radius: 4px;
+  float: left;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+
+.msg_item .item.mine{
+  background-color: #9eea6a;
+  float: right;
+  margin-right: 20rpx;
+}
+
+.sendMsg {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 20rpx;
+}
+
+.input_wrap {
+  background-color: #f0f0f0;
+  width: 666rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 8px;
+}
+
+.send {
+  margin-left: 40rpx;
+  padding: 10rpx 30rpx;
+  background-color: #1aa034;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.tap {
+  background-color: #186327;
+}
+
+.fit {
+  width: 100%;
+  height: 200rpx;
+}

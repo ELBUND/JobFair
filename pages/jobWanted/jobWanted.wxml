@@ -1,0 +1,15 @@
+<view class="container">
+	<view class="wrap">
+		<view class="row" bindtap="choose">
+			<view class="left">
+				<view class="title">期望职位</view>
+				<view class="wanted">
+					<input placeholder="选择期望职位" disabled="true" value="{{jobWanted}}"></input>
+				</view>
+			</view>
+			<view class="right">
+				<image src="/img/right.png"></image>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,220 @@
+.container {
+  position: relative;
+}
+
+.screen {
+  padding: 0 30rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+  box-shadow: 0 0 20rpx #eee;
+}
+
+.screen_icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.screen_icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.screen_modal {
+  width: 100%;
+  background-color: rgba(0, 0, 0, .4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 12;
+}
+
+.screen_main {
+  width: 100%;
+  height: 1180rpx;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  transform: translateX(-400rpx);
+  opacity: 0;
+}
+
+.s_title {
+  font-size: 36rpx;
+  width: 100%;
+  overflow: hidden;
+  height: 80rpx;
+}
+
+.s_title .title {
+  float: left;
+  padding: 10rpx;
+}
+
+.s_title image {
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin-right: 80rpx;
+  margin-top: 20rpx;
+}
+
+.s_part {
+  margin-top: 30rpx;
+}
+
+.s_part .title {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.s_part .content {
+  overflow: hidden;
+}
+
+.s_part .content .item {
+  float: left;
+  width: 120rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  border: 1rpx solid #666;
+  border-radius: 4px;
+  color: #666;
+  box-sizing: border-box;
+  margin: 10rpx 20rpx 10rpx 0;
+}
+
+.s_part .content .item.selected {
+  color: #fff;
+  border: 1rpx solid #0078d7;
+  background-color: #0078d7;
+}
+
+.s_part .content .c_item {
+  float: left;
+  /* width: 300rpx;
+  height: 110rpx;
+  text-align: center; */
+  padding: 20rpx;
+  border: 1rpx solid #666;
+  border-radius: 4px;
+  color: #666;
+  box-sizing: border-box;
+  margin: 10rpx 40rpx 10rpx 0;
+}
+
+.s_part .content .c_item.selected {
+  color: #fff;
+  border: 1rpx solid #0078d7;
+  background-color: #0078d7;
+}
+
+.operation {
+  padding: 26rpx;
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  border-top: 1rpx solid #eee;
+  box-shadow: 0 0 20px #d4d4d4;
+}
+
+.operation .clearSelect {
+  width: 200rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.operation .confirm {
+  width: 440rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background-color: #1296db;
+  color: #fff;
+  border-radius: 4px;
+  margin-left: 20rpx;
+}
+
+.cv_item {
+  width: 600rpx;
+  margin: 50rpx auto;
+  padding: 20rpx;
+  box-shadow: 5px 5px 20px #666;
+  display: flex;
+  position: relative;
+}
+
+.cv_item .photo {
+  width: 180rpx;
+  height: 210rpx;
+  box-shadow: 0 0 10px #666;
+}
+
+.cv_item .photo image {
+  width: 100%;
+  height: 100%;
+}
+
+.cv_item .name {
+  font-weight: 600;
+  font-size: 34rpx;
+}
+
+.cv_item .title {
+  font-weight: 600;
+}
+
+.cv_item .info {
+  width: 240rpx;
+  padding-left: 30rpx;
+  font-size: 32rpx;
+}
+
+.i_row {
+  display: flex;
+}
+
+.subitem {
+  padding-left: 20rpx;
+}
+
+.subitem .each {
+  width: 350rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.detail_wrap {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  color: #666;
+}
+
+.detail .icon_right {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.detail .icon_right image {
+  width: 100%;
+  height: 100%;
+}
+
+.tap {
+  background-color: rgba(0, 0, 0, .05);
+  box-shadow: none;
+}

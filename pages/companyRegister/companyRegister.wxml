@@ -1,0 +1,134 @@
+<view class="container">
+	<form bindsubmit="submit">
+		<view class="row" wx:if="{{isChange==false}}">
+			<view class="title">企业账号</view>
+			<view class="content">
+				<input name='account' placeholder="填写账号,请务必记好所写账号"></input>
+			</view>
+		</view>
+		<view class="row" wx:if="{{isChange==false}}">
+			<view class="title">企业密码</view>
+			<view class="content">
+				<input name='password' placeholder="填写密码"></input>
+			</view>
+		</view>
+		<view class="row">
+			<view class="title">企业名称</view>
+			<view class="content">
+				<input name='name' placeholder="输入完整企业名称" value="{{company.name}}"></input>
+			</view>
+		</view>
+		<view class="row">
+			<view class="title">企业法人</view>
+			<view class="content">
+				<input name='legalPerson' placeholder="输入企业法人" value="{{company.legalPerson}}"></input>
+			</view>
+		</view>
+		<view class="row">
+			<view class="title">联系电话</view>
+			<view class="content">
+				<input name='phone' placeholder="输入联系电话" value="{{company.phone}}"></input>
+			</view>
+		</view>
+		<view class="row">
+			<view class="title">公司地址</view>
+			<view class="content">
+				<picker name="address" mode="region" bindchange="address" value="{{address}}" custom-item="{{customItem}}">
+					<view class="pickerShow">{{address[0]}},{{address[1]}},{{address[2]}}</view>
+				</picker>
+			</view>
+		</view>
+		<view class="row">
+			<view class="title">详细地址</view>
+			<view class="content">
+				<input name='addressDetail' placeholder="街道门牌号信息" value="{{company.addressDetail}}"></input>
+			</view>
+		</view>
+		<view class="row" style="border-bottom: none">
+			<view class="title">营业执照</view>
+		</view>
+		<!-- 上传营业执照 -->
+		<view class="addPhoto">
+			<view class="add" wx:if="{{license==''}}" bindtap="addPhoto">
+				<image src="/img/addphoto.png"></image>
+			</view>
+			<view class="photo" wx:if="{{license!=''}}">
+				<image src="{{license}}" class="license" mode="aspectFit" bindtap="preview"></image>
+				<view class="tip"><text bindtap="addPhoto">重新选择</text></view>
+			</view>
+		</view>
+		<!-- 公司简介 -->
+		<view class="row" style="border-bottom: none">
+			<view class="title">公司简介</view>
+		</view>
+		<view class="remark">
+			<textarea name='introduction' placeholder="输入公司简介" maxlength="-1" value="{{company.introduction}}"></textarea>
+		</view>
+		<view class="row" style="border-top: 1rpx solid #f0f0f0;">
+			<view class="title">所属行业</view>
+			<view class="content">
+				<view class="select" bindtap="trade">
+					<input name="trade" placeholder="请选择行业" disabled="true" value="{{selectTrade}}"></input>
+					<image src="/img/right.png"></image>
+				</view>
+			</view>
+		</view>
+		<!-- 选择行业弹窗 -->
+		<view class="chooseTrade" wx:if="{{chooseTrade==true}}">
+			<view class="trader_wrap" animation="{{animation}}">
+				<view class="t_title">
+					<text>选择行业</text>
+					<image src="/img/close_grey.png" catchtap="close"></image>
+				</view>
+				<view class="t_main">
+					<view class="trade_item {{current==index?'selected':''}}" wx:for="{{trades}}" wx:key="*this" catchtap="selectTrade" data-trade="{{item}}" data-index="{{index}}">
+						{{item}}
+					</view>
+				</view>
+				<button class="btnTrade" type="primary" catchtap="tradeConfirm">确认选择</button>
+			</view>
+		</view>
+		<view class="row">
+			<view class="title">注册时长</view>
+			<view class="content">
+				<input name='duration' placeholder="输入已注册的时间(单位:年)" type="number" value="{{company.duration}}"></input>
+			</view>
+		</view>
+		<view class="row">
+			<view class="title">注册资金</view>
+			<view class="content">
+				<input name='capital' placeholder="输入注册资金(单位:万)" type="number" value="{{company.capital}}"></input>
+			</view>
+		</view>
+		<view class="row">
+			<view class="title">公司规模</view>
+			<view class="content">
+				<input name='scale' placeholder="输入公司人数(单位:人)" type="number" value="{{company.scale}}"></input>
+			</view>
+		</view>
+		<!-- 提交申请 -->
+		<view class="confirm">
+			<button wx:if="{{isChange==false}}" class="btnRegister" form-type="submit">提交申请</button>
+			<!-- 提交修改 -->
+			<button wx:else class="btnRegister" form-type="submit">确认修改</button>
+		</view>
+	</form>
+	<!-- 占位容器 -->
+	<view class="fit"></view>
+	<!-- 成功提交后的弹窗 -->
+	<view class="success" wx:if="{{success==true}}">
+		<view class="showSuccess">
+			<view class="icon">
+				<icon type="success" size="70"></icon>
+			</view>
+			<view class="s_title">提交成功</view>
+			<view class="s_row"><text decode="true">公&emsp;&emsp;司</text>：{{name}}</view>
+			<view class="s_row">登录账号：{{account}}</view>
+			<view class="s_row">登录密码：{{password}}</view>
+			<view class="s_row">请保存好以上信息,建议截图保存</view>
+			<view class="s_op">
+				<button type="primary" bindtap="back">返回个人中心</button>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,118 @@
+<view class="container">
+	<view class="job_item">
+		<!-- 职位名称及发布时间 -->
+		<view class="row">
+			<view class="job_name">{{job.name}}</view>
+			<view class="publish_time">{{job.postTime}}</view>
+		</view>
+		<!-- 薪资 -->
+		<view class="row">
+			<view class="job_salary">{{job.salary_start}}k ~ {{job.salary_end}}k</view>
+		</view>
+		<!-- 福利待遇 -->
+		<view class="row" style="border-bottom: 1rpx solid #e4e4e4;padding-bottom: 20rpx">
+			<view class="welfare_item" wx:for="{{job.welfares}}" wx:key="*this">{{item}}</view>
+		</view>
+		<!-- 公司基本信息 -->
+		<view class="company_info">
+			<!-- 左侧logo -->
+			<view class="logo">
+				<image src="{{company.logo}}"></image>
+			</view>
+			<!-- 右侧基本信息 -->
+			<view class="info">
+				<view class="i_row">
+					<view class="name">{{company.name}}</view>
+					<view class="toDetail" bindtap="companyDetail" wx:if="{{isCompany==false}}">
+						<view style="display:flex;align-item:center;justify-content: center">
+							<text>查看公司</text>
+							<image src="/img/right_blue.png"></image>
+						</view>
+					</view>
+				</view>
+				<view class="i_row">
+					<view class="introduction">
+						{{company.introduction}}
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 职位说明 -->
+	<view class="part">
+		<view class="title">
+			<image src="/img/job_require.png"></image>
+			职位说明
+		</view>
+		<view class="content">
+			<view class="point" wx:for="{{job.points}}" wx:key="index">
+				<view class="point_num">{{index+1}}.</view>
+				<view class="point_text">{{item.point}}</view>
+			</view>
+		</view>
+	</view>
+	<!-- 工作地址 -->
+	<view class="part">
+		<view class="title">
+			<image src="/img/work_address.png"></image>
+			工作地址
+		</view>
+		<view class="content">
+			<view class="address">{{address}}</view>
+			<!-- 地图显示 -->
+		</view>
+	</view>
+	<!-- 发布者信息 -->
+	<view class="part">
+		<view class="title">
+			<image src="/img/HR.png"></image>
+			发布者
+		</view>
+		<view class="content">
+			<view class="HR_row">
+				<view class="HR_name">{{job.hr}}</view>
+				<image src="/img/point.png"></image>
+				<view class="HR_positon">{{job.position}}</view>
+			</view>
+			<view class="HR_row">
+				<view class="left">电话：</view>
+				<view class="left">{{job.phone}}</view>
+				<view class="right">
+					<image class="makecall" src="/img/makecall.png" bindtap="makecall" data-phone="{{job.phone}}"></image>
+				</view>
+			</view>
+			<view class="HR_row">
+				<view class="left">微信：</view>
+				<view class="left" style="color: #2e9ce0" bindtap="copy" data-text="{{job.weixin}}">{{job.weixin}}（点击复制）</view>
+			</view>
+			<view class="HR_row">
+				<view class="left">联系邮箱：</view>
+				<view class="left" style="color: #2e9ce0" bindtap="copy" data-text="{{job.email}}">{{job.email}}（点击复制）</view>
+			</view>
+		</view>
+	</view>
+	<!-- 占位容器 -->
+	<view class="fit"></view>
+	<!-- 收藏以及投递简历 -->
+	<view class="operation" wx:if="{{isCompany==false}}">
+		<!-- 收藏按钮 -->
+		<!-- 收藏前 -->
+		<view class="addFavor" wx:if="{{hasFavor==false}}" bindtap="addFavor">
+			<image src="/img/favor_before.png"></image>
+			收藏
+		</view>
+		<!-- 收藏后 -->
+		<view class="addFavor after" wx:else bindtap="cancelFavor">
+			<image src="/img/favor_after.png"></image>
+			已收藏
+		</view>
+		<!-- 投递简历按钮 -->
+		<view class="sendCV" bindtap="sendCV">
+			投递简历
+		</view>
+	</view>
+	<!-- 删除该职位 -->
+	<view class="delJob_wrap" wx:else>
+		<view class="delJob" catchtap="delJob">删除该职位</view>
+	</view>
+</view>

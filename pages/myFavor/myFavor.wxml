@@ -1,0 +1,26 @@
+<view class="container">
+	<view class="job_item" wx:for="{{myFavors}}" wx:key="index" bindtap="jobDetail" data-item="{{item}}" wx:if="{{myFavors.length!=0}}">
+		<!-- 职位名称及发布时间 -->
+		<view class="row">
+			<view class="job_name">{{item.name}}</view>
+			<view class="publish_time">{{item.postTime}}</view>
+		</view>
+		<!-- 薪资 -->
+		<view class="row">
+			<view class="job_salary">{{item.salary_start}}k ~ {{item.salary_end}}k</view>
+		</view>
+		<!-- 福利待遇 -->
+		<view class="row" style="border-bottom: 1rpx solid #e4e4e4;padding-bottom: 20rpx">
+			<view class="welfare_item" wx:for="{{item.welfares}}" wx:key="*this">{{item}}</view>
+		</view>
+		<!-- 公司及区域 -->
+		<view class="row">
+			<view class="company">{{item.company}}</view>
+			<!-- <view class="area">{{item.area}}</view> -->
+		</view>
+	</view>
+	<view class="noFavor" wx:if="{{myFavors.length==0}}">
+		<image src="/img/none.png"></image>
+		<view>暂时还没有收藏的职位哦~快去收藏吧~</view>
+	</view>
+</view>
