@@ -22,7 +22,7 @@
 			<view class="room_item" hover-class="tap" hover-stay-time="100" wx:for="{{rooms}}" wx:key="index" bindtap="enterRoom" data-roomid="{{item.roomid}}" data-photo="{{item.student_photo}}" data-company="{{item.company}}" data-hr="{{item.sender}}" wx:if="{{isCompany==false}}">
 				<!-- 照片 -->
 				<view class="photo">
-					<image src="{{item.hr_photo}}"></image>
+					<image src="{{item.logo}}"></image>
 				</view>
 				<view class="info">
 					<view class="row">

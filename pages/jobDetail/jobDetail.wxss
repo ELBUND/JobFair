@@ -153,7 +153,7 @@ page{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150rpx;
+  width: 180rpx;
   height: 60rpx;
   padding: 10rpx 20rpx;
   border: 1rpx solid #666;

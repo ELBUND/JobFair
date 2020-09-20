@@ -47,6 +47,7 @@ Page({
             data: {
               roomid: _this.randomRoomid(),  //房间id
               company: company.name,  //公司名称
+              logo: company.logo,  //公司logo
               sender: '',  //发起人昵称
               student: detail.name,  //学生姓名
               student_photo: detail.photo,  //学生照片

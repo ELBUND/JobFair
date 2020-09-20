@@ -15,6 +15,7 @@ Page({
     major: [],
     education_selected: '不限',
     major_selected: '不限',
+    num: 0,
     CV: [],
     animation: {}
   },
@@ -109,21 +110,23 @@ Page({
     db.collection('CV').where({
       education: education_selected,
       major: major_selected
-    }).get({
-      success(res) {
-        wx.hideLoading()
-        if (res.data.length == 0) {
-          wx.showToast({
-            title: '暂无符合的学生',
-            icon: 'none',
-            duration: 3000
+    })
+      .orderBy('creatTime', 'desc')
+      .get({
+        success(res) {
+          wx.hideLoading()
+          if (res.data.length == 0) {
+            wx.showToast({
+              title: '暂无符合的学生',
+              icon: 'none',
+              duration: 3000
+            })
+          }
+          _this.setData({
+            CV: res.data
           })
         }
-        _this.setData({
-          CV: res.data
-        })
-      }
-    })
+      })
   },
 
   //跳转详情
@@ -152,45 +155,44 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    let _this = this
+    let education_selected = this.data.education_selected
+    let major_selected = this.data.major_selected
+    let num = this.data.num + 20
+    education_selected == '不限' ? education_selected = undefined : education_selected = this.data.education_selected
+    major_selected == '不限' ? major_selected = undefined : major_selected = this.data.major_selected
+    wx.showLoading({
+      title: '加载中'
+    })
+    db.collection('CV').where({
+      education: education_selected,
+      major: major_selected
+    })
+      .orderBy('creatTime', 'desc')
+      .skip(num)
+      .get({
+        success(res) {
+          wx.hideLoading()
+          if (res.data.length == 0) {
+            wx.showToast({
+              title: '没有更多了~',
+              icon: 'none',
+              duration: 3000
+            })
+            num -= 20
+            _this.setData({
+              num: num
+            })
+          }
+          _this.setData({
+            CV: _this.data.CV.concat(res.data),
+            num: num
+          })
+        }
+      })
   },
 
   /**
