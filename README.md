@@ -6,3 +6,4 @@
 小程序通过云开发，实现学生投简、企业招贤、线上咨询三大主要功能
 ### 介绍视频
 https://v.qq.com/x/page/w3153yg749g.html
+![](https://github.com/ELBUND/JobFair/blob/master/img/HR.png)
